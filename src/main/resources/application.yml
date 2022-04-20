@@ -1,0 +1,31 @@
+debug: true
+
+server:
+  port: 9999
+  servlet:
+    context-path: /api/v1
+  connection-timeout-ms: 5000
+  read-timeout-ms: 5000
+
+spring:
+  main:
+    web-application-type: reactive
+  webflux.base-path: /api/v1
+  application.name: backend-service
+  r2dbc:
+    password: qwerty
+    username: backend
+    url: r2dbc:pool:postgresql://localhost:5432/backend
+  flyway:
+    enabled: true
+    validate-on-migrate: true
+    user: ligabackend
+    password: qwerty
+    url: jdbc:postgresql://localhost:5432/backend
+    schemas: ["backend"]
+  mvc:
+    async:
+      request-timeout: 20000
+
+
+sql.debug.enabled: true
